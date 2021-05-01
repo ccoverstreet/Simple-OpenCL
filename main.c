@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 1000 // Size of arrays used
+#define N 10 // Size of arrays used
 
 char *loadCLSource(const char *filename) {
 	// User must free memory used
@@ -87,7 +87,7 @@ int main() {
 
 	// Work sizes
 	size_t global_size = N;
-	size_t local_size = N / 4;
+	size_t local_size = N / 10;
 
 	// Host data storage
 	cl_float data[N] = {2.3};
