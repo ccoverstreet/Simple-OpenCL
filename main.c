@@ -1,6 +1,6 @@
 #include <CL/cl.h>
-
 #include <stdio.h>
+
 
 #define N 32
 

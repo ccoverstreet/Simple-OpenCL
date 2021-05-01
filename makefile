@@ -1,5 +1,5 @@
-driver: main.c
-	gcc main.c -lOpenCL -o driver
+simple_opencl: main.c
+	gcc main.c -lOpenCL -o simple_opencl
 
-run: driver
-	./driver
+run: simple_opencl
+	./simple_opencl
