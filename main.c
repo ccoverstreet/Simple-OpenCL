@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define N 10 // Size of arrays used
+#define N 100 // Size of arrays used
 
 char *loadCLSource(const char *filename) {
 	// User must free memory used
@@ -87,7 +87,7 @@ int main() {
 
 	// Work sizes
 	size_t global_size = N;
-	size_t local_size = N / 10;
+	size_t local_size = N;
 
 	// Host data storage
 	cl_float data[N] = {2.3};
@@ -99,7 +99,11 @@ int main() {
 		data[i] = i;	
 	}
 
+	// Writes array initialized on CPU
 	clEnqueueWriteBuffer(queue, in_buffer, CL_TRUE, 0, sizeof(cl_float) * N, data, 0, NULL, NULL);
+	// Zeroes the value in output buffer
+	clEnqueueWriteBuffer(queue, red_out_buffer, CL_TRUE, 0, sizeof(cl_uint), &red_out, 0, NULL, NULL);
+		
 
 	clEnqueueNDRangeKernel(queue, kernel_1, 1, NULL, &global_size, &local_size, 0, NULL, NULL);
 	clEnqueueNDRangeKernel(queue, kernel_2, 1, NULL, &global_size, &local_size, 0, NULL, NULL);

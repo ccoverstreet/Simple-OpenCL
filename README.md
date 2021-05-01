@@ -1,1 +1,3 @@
-The reduction kernel seems to have a race condition. Is atomic_add or work_group_reduce_add to blame?
+# Simple OpenCL Application
+
+Note to self: Make sure memory that needs to be initialized is initialed (*facepalm*)
